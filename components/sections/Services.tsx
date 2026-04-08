@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { getWhatsAppLink } from "@/lib/config";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 export async function Services() {
   const t = await getTranslations("services");
@@ -19,6 +20,7 @@ export async function Services() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
+        <RevealOnScroll>
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <span className="font-headline text-xs tracking-[0.3em] text-[#B87333] uppercase block mb-4">
@@ -32,8 +34,10 @@ export async function Services() {
             {t("subtitle")}
           </p>
         </div>
+        </RevealOnScroll>
 
         {/* Grid de cards — borda estilo Kinetic Blueprint */}
+        <RevealOnScroll delay={120}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {groups.map((group) => (
             <ServiceCard
@@ -49,6 +53,7 @@ export async function Services() {
             />
           ))}
         </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

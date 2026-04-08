@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/config";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 export async function About() {
   const t = await getTranslations("about");
@@ -20,6 +21,7 @@ export async function About() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header da seção */}
+        <RevealOnScroll>
         <header className="relative mb-20 flex items-end justify-between border-l-2 border-[#B87333] pl-8 py-4">
           {/* Ember particles decorativos */}
           <div className="ember-field opacity-20">
@@ -46,8 +48,10 @@ export async function About() {
             </p>
           </div>
         </header>
+        </RevealOnScroll>
 
         {/* Grid principal: foto + bio */}
+        <RevealOnScroll delay={100}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-t border-[#46464c]/15">
 
           {/* Coluna da foto */}
@@ -132,8 +136,10 @@ export async function About() {
             </div>
           </div>
         </div>
+        </RevealOnScroll>
 
         {/* Stats — 4 colunas */}
+        <RevealOnScroll delay={150}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-b border-[#46464c]/15 relative z-10">
           {stats.map((stat, i) => (
             <div
@@ -159,8 +165,10 @@ export async function About() {
             </div>
           ))}
         </div>
+        </RevealOnScroll>
 
         {/* Autoridade técnica */}
+        <RevealOnScroll delay={200}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-24 relative z-10">
           <div className="p-8 border border-[#B87333]/10 bg-[#161b2b] relative overflow-hidden group">
             <h3 className="font-headline text-lg text-[#B87333] uppercase tracking-tighter mb-6 relative z-10">
@@ -205,6 +213,7 @@ export async function About() {
             </div>
           </div>
         </div>
+        </RevealOnScroll>
 
       </div>
     </section>

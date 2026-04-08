@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ProjectModal } from "@/components/ui/ProjectModal";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { PORTFOLIO } from "@/lib/portfolio";
 import { Project } from "@/types";
 
@@ -18,6 +19,7 @@ export function Portfolio() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
+        <RevealOnScroll>
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <span className="font-headline text-xs tracking-[0.3em] text-[#B87333] uppercase block mb-4">
@@ -31,8 +33,10 @@ export function Portfolio() {
             {t("subtitle")}
           </p>
         </div>
+        </RevealOnScroll>
 
         {/* Grid de projetos — borda industrial */}
+        <RevealOnScroll delay={100}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
           {PORTFOLIO.map((project) => (
             <button
@@ -80,6 +84,7 @@ export function Portfolio() {
             </button>
           ))}
         </div>
+        </RevealOnScroll>
       </div>
 
       {selected && (

@@ -19,7 +19,7 @@ export async function Hero() {
       className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 overflow-hidden bg-[#0e1322]"
     >
       {/* Grid técnico de fundo */}
-      <div className="fixed inset-0 bg-grid pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-grid pointer-events-none z-0" />
 
       {/* Fluxo molten animado */}
       <div className="molten-flow" />

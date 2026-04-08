@@ -113,13 +113,32 @@
 - Domínio `engenhariatitan.com` configurado via Cloudflare
 - Site em produção: **www.engenhariatitan.com**
 
+### Sessão 4 (2026-04-08) — UI Audit & Polish
+- **Contact section** — paleta completamente reescrita para Kinetic Blueprint (navy+copper); estava com cores marrom/âmbar desconexas do restante do site
+- **Semântica HTML** — `<h1>` no Contact corrigido para `<h2>` (havia dois h1 na página)
+- **Acessibilidade** — `htmlFor` adicionado em todos os labels do formulário (vínculo com inputs)
+- **Contact UX** — spinner animado no botão de submit; estado de erro reseta ao digitar
+- **Performance** — `fixed` → `absolute` no `bg-grid` do Hero (eliminava repaint em todo scroll)
+- **Scroll animations** — `RevealOnScroll.tsx` criado (Intersection Observer + CSS puro, sem deps); aplicado em About, Services e Portfolio; respeita `prefers-reduced-motion`
+- **Navbar** — menu mobile fecha com tecla Escape
+- **Skills usadas** — `ui-ux-pro-max` (pesquisa de estilo/tipografia), `frontend-design-audit` (15 princípios de usabilidade)
+
+### Sessão 3 (2026-04-08) — Security Hardening
+- **HTML Injection fix** — `escapeHtml()` em todos os campos antes de interpolar no template (`lib/services/email.ts`)
+- **Security Headers** — CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy adicionados em `next.config.ts`
+- **Input validation** — limites de tamanho (name 100, email 254, phone 30, message 5000), validação de email robusta (exige exatamente 1 `@`) em `app/api/contact/route.ts`
+- **Content-Type check** — API rejeita requests sem `application/json`
+- **CORS explícito** — OPTIONS handler + headers restritos a `https://www.engenhariatitan.com`
+- **Error sanitization** — erros internos do Resend não vazam mais para o cliente
+- **IP real no Vercel** — `getClientIp()` prioriza `x-vercel-forwarded-for` (`lib/utils/rate-limit.ts`)
+
 ---
 
 ## 🚀 Backlog (próxima sessão)
 
 ### Alta Prioridade
-- [ ] **Logo fundo branco** — `Navbar.tsx` e `Footer.tsx` — trocar `logo.png` por versão com transparência ou usar `mix-blend-mode: lighten`
-- [ ] **OG Image** — Criar `public/assets/og-image.jpg` (1200×630px) para compartilhamento em redes sociais
+- [x] **Logo fundo branco** — `Navbar.tsx` — `mix-blend-mode: screen` aplicado (ideal: trocar por PNG com fundo transparente)
+- [x] **OG Image** — `app/[locale]/opengraph-image.tsx` — ImageResponse edge runtime, Kinetic Blueprint 1200×630
 
 ### Média Prioridade
 - [ ] **GA4** — Criar conta Google Analytics → substituir `G-XXXXXXXXXX` em `lib/config.ts:22`
