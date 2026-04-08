@@ -10,7 +10,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  */
 export async function sendContactEmail(data: ContactFormData) {
   const { name, email, phone, message } = data;
-  const contactEmail = process.env.CONTACT_EMAIL ?? "marlon@engenhariatitan.com.br";
+  const contactEmail = process.env.CONTACT_EMAIL;
+  if (!contactEmail) throw new Error("CONTACT_EMAIL environment variable is not set");
 
   try {
     const result = await resend.emails.send({
