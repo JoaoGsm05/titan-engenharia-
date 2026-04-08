@@ -1,17 +1,15 @@
 import { Resend } from "resend";
 import { ContactFormData } from "@/types";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-/**
- * Envia um e-mail de contato usando o serviço Resend.
- * @param data Os dados do formulário de contato.
- * @returns Um objeto indicando o sucesso ou erro da operação.
- */
 export async function sendContactEmail(data: ContactFormData) {
   const { name, email, phone, message } = data;
+
+  const apiKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL;
+  if (!apiKey) throw new Error("RESEND_API_KEY environment variable is not set");
   if (!contactEmail) throw new Error("CONTACT_EMAIL environment variable is not set");
+
+  const resend = new Resend(apiKey);
 
   try {
     const result = await resend.emails.send({
