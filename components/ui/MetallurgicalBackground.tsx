@@ -72,19 +72,21 @@ export function MetallurgicalBackground() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const rawCtx = canvas.getContext("2d");
+    if (!rawCtx) return;
+    const gfx: CanvasRenderingContext2D = rawCtx;
 
     let raf: number;
     let W = 0;
     let H = 0;
+    const c = canvas; // stable non-null reference for closures
 
     /* ── Resize ── */
     function resize() {
-      W = canvas.offsetWidth;
-      H = canvas.offsetHeight;
-      canvas.width = W;
-      canvas.height = H;
+      W = c.offsetWidth;
+      H = c.offsetHeight;
+      c.width = W;
+      c.height = H;
       initStreams();
     }
 
@@ -156,41 +158,41 @@ export function MetallurgicalBackground() {
 
     /* ── Draw one stream line ── */
     function drawStream(s: StreamLine, t: number) {
-      ctx.beginPath();
-      ctx.lineWidth = s.width;
+      gfx.beginPath();
+      gfx.lineWidth = s.width;
       for (let x = 0; x <= W; x += 3) {
         const y = s.y + Math.sin(x * s.frequency + s.phase + t * s.speed) * s.amplitude;
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        x === 0 ? gfx.moveTo(x, y) : gfx.lineTo(x, y);
       }
       // fade left → center → right
-      const grad = ctx.createLinearGradient(0, 0, W, 0);
+      const grad = gfx.createLinearGradient(0, 0, W, 0);
       grad.addColorStop(0,   `rgba(${s.r},${s.g},${s.b},0)`);
       grad.addColorStop(0.2, `rgba(${s.r},${s.g},${s.b},${s.opacity})`);
       grad.addColorStop(0.8, `rgba(${s.r},${s.g},${s.b},${s.opacity})`);
       grad.addColorStop(1,   `rgba(${s.r},${s.g},${s.b},0)`);
-      ctx.strokeStyle = grad;
-      ctx.stroke();
+      gfx.strokeStyle = grad;
+      gfx.stroke();
     }
 
     /* ── Main render loop ── */
     let tick = 0;
     function draw() {
-      ctx.clearRect(0, 0, W, H);
+      gfx.clearRect(0, 0, W, H);
 
       /* 1. Molten orbs */
       for (const orb of orbs) {
         orb.phase += orb.phaseSpeed;
         // Subtle pulsing radius
         const r = orb.radius * (1 + 0.08 * Math.sin(orb.phase));
-        const grad = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, r);
+        const grad = gfx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, r);
         const alpha = 0.09 + 0.04 * Math.sin(orb.phase * 1.3);
         grad.addColorStop(0,   `rgba(${orb.r},${orb.g},${orb.b},${alpha})`);
         grad.addColorStop(0.5, `rgba(${orb.r},${orb.g},${orb.b},${alpha * 0.4})`);
         grad.addColorStop(1,   `rgba(${orb.r},${orb.g},${orb.b},0)`);
-        ctx.beginPath();
-        ctx.arc(orb.x, orb.y, r, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
+        gfx.beginPath();
+        gfx.arc(orb.x, orb.y, r, 0, Math.PI * 2);
+        gfx.fillStyle = grad;
+        gfx.fill();
 
         // Move
         orb.x += orb.vx;
@@ -233,13 +235,13 @@ export function MetallurgicalBackground() {
         p.vy *= 0.997;
 
         // Draw as glowing dot
-        const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2.5);
+        const grd = gfx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2.5);
         grd.addColorStop(0, `rgba(${p.r},${p.g},${p.b},${p.opacity})`);
         grd.addColorStop(1, `rgba(${p.r},${p.g},${p.b},0)`);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = grd;
-        ctx.fill();
+        gfx.beginPath();
+        gfx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
+        gfx.fillStyle = grd;
+        gfx.fill();
 
         if (p.life >= p.maxLife) sparks.splice(i, 1);
       }
