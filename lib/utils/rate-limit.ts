@@ -1,15 +1,11 @@
 import { NextRequest } from "next/server";
 
-// Rate limiting simples por IP (em memória — suficiente para um site institucional)
+// Rate limiting por IP (em memória — funciona para instâncias únicas; em serverless
+// distribído, use Upstash Redis para garantia total entre instâncias Vercel)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 3; // máx 3 envios por IP
 const RATE_WINDOW_MS = 60 * 60 * 1000; // janela de 1 hora
 
-/**
- * Verifica se um IP ultrapassou o limite de requisições.
- * @param ip O endereço IP do cliente.
- * @returns boolean True se permitido, False se bloqueado.
- */
 export function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
@@ -26,12 +22,15 @@ export function checkRateLimit(ip: string): boolean {
 }
 
 /**
- * Extrai o IP do cliente de uma NextRequest.
+ * Extrai o IP real do cliente.
+ * Prioriza x-vercel-forwarded-for (IP real no Vercel) e x-real-ip.
+ * O x-forwarded-for é o último recurso pois pode ser forjado por proxies intermediários.
  */
 export function getClientIp(req: NextRequest): string {
   return (
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    req.headers.get("x-vercel-forwarded-for") ??
     req.headers.get("x-real-ip") ??
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
     "unknown"
   );
 }
