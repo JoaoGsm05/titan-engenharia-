@@ -1,0 +1,154 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "tagline": "Non-Ferrous Metals Metallurgical Engineering",
+    "headline": "From concept to full operation — industrial projects on any continent",
+    "subheadline": "Specialized consulting in metallurgy, executive projects, and technical training for mining and heavy industry.",
+    "cta_primary": "Request a Quote",
+    "cta_secondary": "Explore Services",
+    "countries": "Projects on 3 continents",
+    "experience": "28 years of experience",
+    "sectors": "Mining & Heavy Industry"
+  },
+  "about": {
+    "label": "About Titan",
+    "title": "Born during a pandemic. Launched in Africa.",
+    "p1": "While the world stood still during COVID-19, Titan Engenharia took off with bold projects across Africa. Founded in 2021 by Marlon de Mendonça, a civil engineer graduated from the Pontifical Catholic University in 1998, specialized in non-ferrous metals metallurgy.",
+    "p2": "We serve mining clients in Uganda, Congo, Nigeria, Namibia, Venezuela, Bolivia, and Brazil. Our specialty covers non-ferrous metals — tin, gold, lead, zinc, tantalum, niobium — from feasibility studies to full plant operation.",
+    "p3": "Ethics, integrity, and bold innovation guide every technical decision. We don't deliver projects — we deliver working plants.",
+    "mission_label": "Mission",
+    "mission": "To guide metallurgical projects from concept to full operation, providing consulting, training, and integrated solutions for productivity, safety, and sustainability.",
+    "vision_label": "Vision",
+    "vision": "To be a global reference in non-ferrous metals, leading sustainable innovations in international projects.",
+    "stat_years": "years of experience",
+    "stat_countries": "countries served",
+    "stat_projects": "projects delivered",
+    "formation": "Civil Eng. — PUC, 1998 | Specialization in Non-Ferrous Metals Metallurgy"
+  },
+  "services": {
+    "label": "Services",
+    "title": "What Titan delivers",
+    "subtitle": "From project conception to operational plant.",
+    "groups": [
+      {
+        "id": "consultoria",
+        "title": "Metallurgical Consulting",
+        "description": "In-depth technical analysis to optimize processes and make projects viable.",
+        "items": [
+          "Process analysis and optimization",
+          "Mass balancing",
+          "Operational flow restructuring",
+          "Feasibility studies (CAPEX/OPEX)"
+        ]
+      },
+      {
+        "id": "projetos",
+        "title": "Industrial Projects",
+        "description": "Complete engineering from layout to operation, including ramp-up and start-up.",
+        "items": [
+          "Civil, Mechanical, and Electrical Engineering",
+          "Executive projects (layout and sizing)",
+          "Chemical laboratory commissioning",
+          "Industrial plant ramp-up and start-up"
+        ]
+      },
+      {
+        "id": "produtos",
+        "title": "Product Development",
+        "description": "Formulation and production of tin-based alloys and solders with international compliance.",
+        "items": [
+          "Tin alloys (bars, wires, rolled, anodes)",
+          "Solder paste and technical formulations",
+          "Compliance with international standards",
+          "New metallurgical product development"
+        ]
+      },
+      {
+        "id": "treinamentos",
+        "title": "Specialized Training",
+        "description": "Technical training focused on metallurgical processes and international standards.",
+        "items": [
+          "Non-ferrous metals metallurgical processes",
+          "SMD, PTH, Manual and Selective Soldering",
+          "IPC/J-STD standards",
+          "CQI-15 and CQI-17 audits (IQA)"
+        ]
+      }
+    ],
+    "cta": "Request a Quote"
+  },
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "Completed Projects",
+    "subtitle": "Industrial furnaces, metallurgical plants, and commissioned laboratories across 3 continents.",
+    "projects": [
+      {
+        "id": "forno-1",
+        "title": "Industrial Furnace — Full Project",
+        "location": "Africa",
+        "description": "Complete executive project for an industrial furnace for non-ferrous metal processing. From design to commissioning.",
+        "type": "Industrial Project"
+      },
+      {
+        "id": "forno-2",
+        "title": "Smelting Plant",
+        "location": "West Africa",
+        "description": "Development and implementation of a smelting plant including equipment sizing, layout, and start-up.",
+        "type": "Industrial Project"
+      },
+      {
+        "id": "materia-prima",
+        "title": "Raw Material Processing",
+        "location": "South America",
+        "description": "Consulting on beneficiation and raw material preparation processes for non-ferrous metals metallurgy.",
+        "type": "Metallurgical Consulting"
+      },
+      {
+        "id": "fluxo",
+        "title": "Operational Flow Restructuring",
+        "location": "Brazil",
+        "description": "Complete analysis and restructuring of the production flow with mass balancing and CAPEX/OPEX optimization.",
+        "type": "Metallurgical Consulting"
+      }
+    ],
+    "view_details": "View details",
+    "close": "Close"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk about your project",
+    "subtitle": "We work on projects in any country. Response within 24 hours.",
+    "form": {
+      "name": "Full name",
+      "email": "E-mail",
+      "phone": "Phone / WhatsApp",
+      "message": "Describe your project or question",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent! Marlon will contact you soon.",
+      "error": "Error sending. Please try WhatsApp."
+    },
+    "whatsapp_label": "Prefer WhatsApp?",
+    "whatsapp_cta": "Message on WhatsApp",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "location_label": "Coverage",
+    "location": "Global — Brazil, Africa, South America"
+  },
+  "footer": {
+    "tagline": "From concept to full operation.",
+    "rights": "All rights reserved.",
+    "links": {
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "contact": "Contact"
+    }
+  }
+}

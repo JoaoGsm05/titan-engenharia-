@@ -1,0 +1,363 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TITAN ENGENHARIA — KINETIC BLUEPRINT DESIGN SYSTEM
+   Palette: Deep Navy (#0e1322) + Metallic Copper (#B87333)
+             + Tin Silver (#B8C0C8)
+   ============================================================ */
+
+:root {
+  /* ── Legacy red tokens (kept for backward compat) ── */
+  --titan-red: #cc2020;
+  --titan-dark-red: #791515;
+  --titan-black: #0d0d0d;
+  --titan-coal: #1a1a1a;
+  --titan-card: #242424;
+  --titan-border: #2e2e2e;
+  --titan-text: #f0ede8;
+  --titan-muted: #9a9a9a;
+  --titan-white: #ffffff;
+
+  /* ── Kinetic Blueprint — Surface tiers ── */
+  --kb-surface:          #0e1322;
+  --kb-surface-low:      #161b2b;
+  --kb-surface-container: #1a1f2f;
+  --kb-surface-high:     #25293a;
+  --kb-surface-highest:  #2f3445;
+  --kb-surface-lowest:   #090e1c;
+  --kb-surface-bright:   #343949;
+
+  /* ── Kinetic Blueprint — Brand palette ── */
+  --kb-copper:           #B87333;
+  --kb-copper-dark:      #8B5520;
+  --kb-tin:              #B8C0C8;
+  --kb-on-surface:       #dee1f7;
+  --kb-secondary:        #c1c7cf;
+  --kb-outline:          #909097;
+  --kb-outline-variant:  #46464c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--kb-surface);
+  color: var(--kb-on-surface);
+  font-family: "Inter", "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--kb-surface-low);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--kb-copper);
+  border-radius: 2px;
+}
+
+/* ── Seleção de texto ── */
+::selection {
+  background: var(--kb-copper);
+  color: #ffffff;
+}
+
+/* ── Focus ring acessível ── */
+:focus-visible {
+  outline: 2px solid var(--kb-copper);
+  outline-offset: 2px;
+}
+
+/* ── Âncoras com offset para navbar ── */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* ============================================================
+   TIPOGRAFIA — Space Grotesk para headlines
+   ============================================================ */
+.font-headline {
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+/* ============================================================
+   ANIMAÇÕES DE ENTRADA (mantidas)
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+.animate-fade-in    { animation: fadeIn  0.4s ease forwards; }
+
+/* ============================================================
+   KINETIC BLUEPRINT — ANIMAÇÕES
+   ============================================================ */
+
+/* Grid de fundo técnico 24×24px */
+@keyframes moveLiquid {
+  0%   { transform: translate(0, 0)     scale(1);    }
+  33%  { transform: translate(5%, -5%)  scale(1.1);  }
+  66%  { transform: translate(-3%, 7%)  scale(0.9);  }
+  100% { transform: translate(2%, -2%)  scale(1.05); }
+}
+
+@keyframes moltenGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(184,115,51,0.4), 0 0 20px rgba(184,115,51,0.2); }
+  50%       { box-shadow: 0 0 25px rgba(184,115,51,0.7), 0 0 40px rgba(184,115,51,0.4); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes flow {
+  0%   { transform: translate(0, 0)    rotate(0deg);  }
+  50%  { transform: translate(-5%, 5%) rotate(5deg);  }
+  100% { transform: translate(5%, -5%) rotate(-5deg); }
+}
+
+@keyframes riseAndFade {
+  0%   { transform: translateY(100%) translateX(var(--start-x, 0%)) scale(0.5); opacity: 0; }
+  20%  { opacity: var(--max-opacity, 0.4); }
+  80%  { opacity: var(--max-opacity, 0.4); }
+  100% { transform: translateY(-20%)  translateX(var(--end-x, 0%))   scale(1.2); opacity: 0; }
+}
+
+/* ============================================================
+   KINETIC BLUEPRINT — UTILITÁRIOS
+   ============================================================ */
+
+/* Grid técnico de fundo */
+.bg-grid {
+  background-size: 24px 24px;
+  background-image:
+    linear-gradient(to right,  rgba(184,115,51,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184,115,51,0.05) 1px, transparent 1px);
+}
+
+/* Painel de vidro */
+.glass-panel {
+  background: rgba(47, 52, 69, 0.6);
+  backdrop-filter: blur(24px);
+}
+
+/* Texto com efeito shimmer metálico */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(184,115,51,1) 0%,
+    rgba(230,230,230,1) 45%,
+    rgba(255,255,255,1) 50%,
+    rgba(230,230,230,1) 55%,
+    rgba(184,115,51,1) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Background liquid metal (blob animado) */
+.liquid-metal-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(184,115,51,0.25) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(230,230,230,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(184,115,51,0.10) 0%, transparent 60%);
+  filter: blur(60px);
+  z-index: 5;
+  animation: moveLiquid 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Fluxo molten de fundo (hero) */
+.molten-flow {
+  position: absolute;
+  width: 200%; height: 200%;
+  top: -50%; left: -50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(184,115,51,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 30%, rgba(184,115,51,0.10) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(184,192,200,0.08) 0%, transparent 40%);
+  filter: blur(80px);
+  animation: flow 25s infinite alternate ease-in-out;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Card metálico com sheen no hover */
+.metallic-card {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.metallic-card::after {
+  content: "";
+  position: absolute;
+  top: -150%; left: -150%;
+  width: 300%; height: 300%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0)    0%,
+    rgba(255,255,255,0)   45%,
+    rgba(255,255,255,0.05) 50%,
+    rgba(255,255,255,0)   55%,
+    rgba(255,255,255,0)  100%
+  );
+  transition: all 0.6s ease;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.metallic-card:hover::after {
+  top: -50%; left: -50%;
+}
+.metallic-card:hover {
+  box-shadow: 0 0 30px rgba(184,115,51,0.1);
+  border-color: rgba(184,115,51,0.3) !important;
+}
+
+/* Botão com pulso molten */
+.molten-pulse {
+  animation: moltenGlow 3s ease-in-out infinite;
+}
+
+/* Ember (partículas de brasa) */
+.ember-field {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.ember {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: riseAndFade var(--duration, 10s) infinite ease-in-out;
+  animation-delay: var(--delay, 0s);
+}
+.ember-copper {
+  background: radial-gradient(circle, #FF3D00, transparent 70%);
+  box-shadow: 0 0 10px #FF3D00;
+}
+.ember-tin {
+  background: radial-gradient(circle, #E0E0E0, transparent 70%);
+  box-shadow: 0 0 8px #E0E0E0;
+}
+
+/* Gradientes de marca */
+.copper-gradient { background: linear-gradient(135deg, #B87333 0%, #E39B51 50%, #B87333 100%); }
+.tin-gradient    { background: linear-gradient(135deg, #B8C0C8 0%, #E8ECEF 50%, #B8C0C8 100%); }
+
+/* ============================================================
+   COMPONENTES LEGACY (mantidos para transição gradual)
+   ============================================================ */
+
+/* Linha decorativa copper */
+.titan-line {
+  display: inline-block;
+  width: 40px; height: 3px;
+  background: linear-gradient(90deg, var(--kb-copper), var(--kb-copper-dark));
+  border-radius: 2px;
+}
+
+/* Section label */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kb-copper);
+  margin-bottom: 16px;
+}
+
+/* Botão primário copper */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--kb-copper);
+  color: #ffffff;
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Botão outline */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 27px;
+  background: transparent;
+  color: var(--kb-secondary);
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 1px solid rgba(193,199,207,0.3);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--kb-copper);
+  color: var(--kb-copper);
+  transform: translateY(-1px);
+}
+
+/* Card base (Kinetic Blueprint — sem radius) */
+.titan-card {
+  background: var(--kb-surface-low);
+  border: 1px solid rgba(70,70,76,0.3);
+  border-radius: 0;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.titan-card:hover {
+  border-color: rgba(184,115,51,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(184,115,51,0.08);
+}
+
+/* Textura hero */
+.hero-texture {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(184,115,51,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(184,115,51,0.05) 0%, transparent 50%);
+}

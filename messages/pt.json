@@ -1,0 +1,154 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contato",
+    "cta": "Fale Conosco"
+  },
+  "hero": {
+    "tagline": "Engenharia Metalúrgica de Metais Não Ferrosos",
+    "headline": "Da ideia ao pleno funcionamento — projetos industriais em qualquer continente",
+    "subheadline": "Consultoria especializada em metalurgia, projetos executivos e treinamentos técnicos para mineração e indústria pesada.",
+    "cta_primary": "Solicitar Orçamento",
+    "cta_secondary": "Conheça os Serviços",
+    "countries": "Projetos em 3 continentes",
+    "experience": "28 anos de experiência",
+    "sectors": "Mineração e Indústria Pesada"
+  },
+  "about": {
+    "label": "Sobre a Titan",
+    "title": "Nascemos em plena pandemia. Estreamos na África.",
+    "p1": "Enquanto o mundo parava pela COVID-19, a Titan Engenharia decolava com projetos audaciosos no continente africano. Fundada em 2021 por Marlon de Mendonça, engenheiro civil formado pela Pontifícia Universidade Católica em 1998 e especialista em metalurgia de metais não ferrosos.",
+    "p2": "Hoje atendemos clientes em mineração na Uganda, Congo, Nigéria, Namíbia, Venezuela, Bolívia e Brasil. Nossa especialidade são os metais não ferrosos — estanho, ouro, chumbo, zinco, tântalo, nióbio — do estudo de viabilidade à operação plena da planta.",
+    "p3": "Ética, integridade e inovação audaciosa guiam cada decisão técnica. Não entregamos projetos — entregamos plantas funcionando.",
+    "mission_label": "Missão",
+    "mission": "Guiar projetos metalúrgicos da ideia ao pleno funcionamento, com consultoria, treinamentos e soluções integradas para produtividade, segurança e sustentabilidade.",
+    "vision_label": "Visão",
+    "vision": "Ser referência global em metais não ferrosos, liderando inovações sustentáveis em projetos internacionais.",
+    "stat_years": "anos de experiência",
+    "stat_countries": "países atendidos",
+    "stat_projects": "projetos entregues",
+    "formation": "Eng. Civil — PUC, 1998 | Especialização em Metalurgia de Metais Não Ferrosos"
+  },
+  "services": {
+    "label": "Serviços",
+    "title": "O que a Titan entrega",
+    "subtitle": "Da concepção da ideia à entrega do projeto em operação.",
+    "groups": [
+      {
+        "id": "consultoria",
+        "title": "Consultoria Metalúrgica",
+        "description": "Análise técnica profunda para otimizar processos e viabilizar projetos.",
+        "items": [
+          "Análise e otimização de processos",
+          "Balanceamento de massa",
+          "Reestruturação de fluxo operacional",
+          "Estudos de viabilidade (CAPEX/OPEX)"
+        ]
+      },
+      {
+        "id": "projetos",
+        "title": "Projetos Industriais",
+        "description": "Engenharia completa do layout à operação, incluindo ramp-up e start-up.",
+        "items": [
+          "Engenharia Civil, Mecânica e Elétrica",
+          "Projetos executivos (layout e dimensionamento)",
+          "Comissionamento de laboratórios químicos",
+          "Ramp-up e start-up de plantas industriais"
+        ]
+      },
+      {
+        "id": "produtos",
+        "title": "Desenvolvimento de Produtos",
+        "description": "Formulação e produção de ligas e soldas à base de estanho com conformidade internacional.",
+        "items": [
+          "Ligas de estanho (barras, fios, laminados, anodos)",
+          "Solda em pasta e formulações técnicas",
+          "Conformidade com normas internacionais",
+          "Desenvolvimento de novos produtos metalúrgicos"
+        ]
+      },
+      {
+        "id": "treinamentos",
+        "title": "Treinamentos Especializados",
+        "description": "Capacitação técnica com foco em processos metalúrgicos e normas internacionais.",
+        "items": [
+          "Processos metalúrgicos de metais não ferrosos",
+          "Soldagem SMD, PTH, Manual e Seletiva",
+          "Normas IPC/J-STD",
+          "Auditorias CQI-15 e CQI-17 (IQA)"
+        ]
+      }
+    ],
+    "cta": "Solicitar Orçamento"
+  },
+  "portfolio": {
+    "label": "Portfólio",
+    "title": "Projetos Realizados",
+    "subtitle": "Fornos industriais, plantas metalúrgicas e laboratórios comissionados em 3 continentes.",
+    "projects": [
+      {
+        "id": "forno-1",
+        "title": "Forno Industrial — Projeto Completo",
+        "location": "África",
+        "description": "Projeto executivo completo de forno industrial para processamento de metais não ferrosos. Da concepção ao comissionamento.",
+        "type": "Projeto Industrial"
+      },
+      {
+        "id": "forno-2",
+        "title": "Planta de Fundição",
+        "location": "África Ocidental",
+        "description": "Desenvolvimento e implantação de planta de fundição incluindo dimensionamento de equipamentos, layout e start-up.",
+        "type": "Projeto Industrial"
+      },
+      {
+        "id": "materia-prima",
+        "title": "Processamento de Matéria-Prima",
+        "location": "América do Sul",
+        "description": "Consultoria em processo de beneficiamento e preparação de matéria-prima para metalurgia de metais não ferrosos.",
+        "type": "Consultoria Metalúrgica"
+      },
+      {
+        "id": "fluxo",
+        "title": "Reestruturação de Fluxo Operacional",
+        "location": "Brasil",
+        "description": "Análise e reestruturação completa do fluxo de produção com balanceamento de massa e otimização de CAPEX/OPEX.",
+        "type": "Consultoria Metalúrgica"
+      }
+    ],
+    "view_details": "Ver detalhes",
+    "close": "Fechar"
+  },
+  "contact": {
+    "label": "Contato",
+    "title": "Vamos conversar sobre seu projeto",
+    "subtitle": "Atendemos projetos em qualquer país. Resposta em até 24 horas.",
+    "form": {
+      "name": "Nome completo",
+      "email": "E-mail",
+      "phone": "Telefone / WhatsApp",
+      "message": "Descreva seu projeto ou dúvida",
+      "submit": "Enviar Mensagem",
+      "sending": "Enviando...",
+      "success": "Mensagem enviada! Marlon entrará em contato em breve.",
+      "error": "Erro ao enviar. Tente via WhatsApp."
+    },
+    "whatsapp_label": "Prefere WhatsApp?",
+    "whatsapp_cta": "Chamar no WhatsApp",
+    "email_label": "E-mail",
+    "phone_label": "Telefone",
+    "location_label": "Atuação",
+    "location": "Global — Brasil, África, América do Sul"
+  },
+  "footer": {
+    "tagline": "Da ideia ao pleno funcionamento.",
+    "rights": "Todos os direitos reservados.",
+    "links": {
+      "about": "Sobre",
+      "services": "Serviços",
+      "portfolio": "Portfólio",
+      "contact": "Contato"
+    }
+  }
+}
