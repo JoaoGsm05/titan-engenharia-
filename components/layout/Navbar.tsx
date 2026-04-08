@@ -17,6 +17,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [menuOpen]);
+
   const links = [
     { href: "#about",     label: t("about") },
     { href: "#services",  label: t("services") },
@@ -40,7 +49,7 @@ export function Navbar() {
             alt={`Logo ${SITE_CONFIG.company}`}
             width={140}
             height={48}
-            className="h-10 w-auto object-contain"
+            className="h-10 w-auto object-contain [mix-blend-mode:screen]"
             priority
           />
         </a>
