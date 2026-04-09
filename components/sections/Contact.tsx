@@ -160,7 +160,7 @@ export function Contact() {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="ENGENHEIRO / EMPRESA"
-                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/20 font-headline tracking-tight text-sm"
+                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/40 font-headline tracking-tight text-sm"
                   />
                 </div>
 
@@ -179,7 +179,7 @@ export function Contact() {
                     value={form.phone}
                     onChange={handleChange}
                     placeholder="+55 16 99302-0303"
-                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/20 font-headline tracking-tight text-sm"
+                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/40 font-headline tracking-tight text-sm"
                   />
                 </div>
 
@@ -199,7 +199,7 @@ export function Contact() {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="VOCE@EMPRESA.COM"
-                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/20 font-headline tracking-tight text-sm"
+                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/40 font-headline tracking-tight text-sm"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ export function Contact() {
                     value={form.message}
                     onChange={handleChange}
                     placeholder="DESCREVA O ESCOPO E OS REQUISITOS DO PROJETO..."
-                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/20 font-headline tracking-tight text-sm resize-none"
+                    className="w-full bg-transparent border-0 border-b border-[#46464c]/40 py-3 text-[#dee1f7] focus:outline-none focus:border-[#B87333] transition-all placeholder:text-[#B8C0C8]/40 font-headline tracking-tight text-sm resize-none"
                   />
                 </div>
 

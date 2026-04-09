@@ -136,7 +136,9 @@ export function MetallurgicalBackground() {
 
     /* ── Sparks / rising particles ── */
     const sparks: Spark[] = [];
-    const MAX_SPARKS = 55;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isLowPower = "getBattery" in navigator;
+    const MAX_SPARKS = isMobile || isLowPower ? 25 : 55;
 
     function spawnSpark() {
       const c = pick(COLORS);

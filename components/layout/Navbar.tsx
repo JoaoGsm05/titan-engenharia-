@@ -49,7 +49,7 @@ export function Navbar() {
             alt={`Logo ${SITE_CONFIG.company}`}
             width={140}
             height={48}
-            className="h-10 w-auto object-contain [mix-blend-mode:screen]"
+            className="h-10 w-auto object-contain [mix-blend-mode:lighten] opacity-90"
             priority
           />
         </a>

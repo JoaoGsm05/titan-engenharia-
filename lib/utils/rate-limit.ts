@@ -6,8 +6,20 @@ const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 3; // máx 3 envios por IP
 const RATE_WINDOW_MS = 60 * 60 * 1000; // janela de 1 hora
 
+/** Remove entradas expiradas para evitar memory leak em instâncias longas. */
+function purgeExpired() {
+  const now = Date.now();
+  for (const [key, entry] of rateLimitMap) {
+    if (now > entry.resetAt) rateLimitMap.delete(key);
+  }
+}
+
 export function checkRateLimit(ip: string): boolean {
   const now = Date.now();
+
+  // Limpa expirados a cada 50 chamadas (probabilístico, sem overhead constante)
+  if (rateLimitMap.size % 50 === 0 && rateLimitMap.size > 0) purgeExpired();
+
   const entry = rateLimitMap.get(ip);
 
   if (!entry || now > entry.resetAt) {
